@@ -2,18 +2,22 @@ public class Solution
 {
     public int FindClosestNumber(int[] nums)
     {
-        int num = nums[0];
-        for (int i = 0; i < nums.Length; i++)
+        int result = nums[0];
+        int absolute = Math.Abs(result);
+        foreach (int num in nums)
         {
-            if (Math.Abs(num) > Math.Abs(nums[i]))
+            int number = Math.Abs(num);
+            if (absolute > number)
             {
-                num = nums[i];
+                result = num;
+                absolute = number;
             }
-            else if (Math.Abs(num) == Math.Abs(nums[i]))
+            else if (absolute == number && num > result)
             {
-                num = Math.Max(num, nums[i]);
+                result = num;
+                absolute = number;
             }
         }
-        return num;
+        return result;
     }
 }
