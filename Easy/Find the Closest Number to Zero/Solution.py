@@ -4,7 +4,6 @@ class Solution(object):
         for num in nums:
             if abs(closest) > abs(num):
                 closest = num
-            elif abs(closest) == abs(num):
-                closest = max(num, closest)
+            elif abs(closest) == num:
+                closest = num
         return closest
-        
