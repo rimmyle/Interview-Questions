@@ -1,11 +1,15 @@
-function findClosestNumbesTs(nums: number[]): number {
-    let closest: number = nums[0];
+function findClosestNumberTs(nums: number[]): number {
+    let result: number = nums[0];
+    let absolute: number = Math.abs(result);
     nums.forEach((num) => {
-        if (Math.abs(closest) > Math.abs(num)) {
-            closest = num;
-        } else if (Math.abs(closest) == Math.abs(num)) {
-            closest = Math.max(closest, num);
+        const number = Math.abs(num);
+        if (absolute > number) {
+            result = num;
+            absolute = number;
+        } else if (absolute == number && num > result) {
+            result = num;
+            absolute = number;
         }
     })
-    return closest;
+    return result;
 };
