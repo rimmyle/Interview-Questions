@@ -3,13 +3,19 @@
  * @return {number}
  */
 var findClosestNumber = function(nums) {
-    let closest = nums[0];
+    let result = nums[0];
+    let absolute = Math.abs(result);
     nums.forEach((num) => {
-        if (Math.abs(closest) > Math.abs(num)) {
-            closest = num;
-        } else if (Math.abs(closest) == Math.abs(num)) {
-            closest = Math.max(num, closest);
+        const number = Math.abs(num);
+        if (absolute > number) {
+            result = num;
+            absolute = number;
+        } else if (absolute == number) {
+            if (num > result) {
+                result = num;
+                absolute = number;
+            }
         }
     })
-    return closest;
+    return result;
 };
