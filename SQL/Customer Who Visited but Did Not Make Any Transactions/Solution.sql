@@ -1,1 +1,12 @@
-select customer_id, count(*) as count_no_trans from visits left join transactions using(visit_id) where transaction_id is null group by customer_id order by count_no_trans asc;
+SELECT
+    customer_id,
+    count(*) AS count_no_trans
+FROM
+    visits
+    LEFT JOIN transactions USING (visit_id)
+WHERE
+    transaction_id IS NULL
+GROUP BY
+    customer_id
+ORDER BY
+    count_no_trans ASC;
