@@ -1,0 +1,1 @@
+select one.machine_id, round(avg(cast(two.timestamp - one.timestamp as decimal)), 3) as processing_time from activity as one join activity as two on one.machine_id = two.machine_id and one.process_id = two.process_id and one.activity_type = 'start' and two.activity_type = 'end' group by one.machine_id;
