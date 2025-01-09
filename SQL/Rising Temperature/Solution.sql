@@ -1,0 +1,1 @@
+select current.id from weather as current cross join weather previous where current.temperature > previous.temperature and current.recorddate = previous.recorddate + 1;
